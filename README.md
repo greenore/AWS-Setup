@@ -1,7 +1,7 @@
 # AWS-Setup
 
-# Gitlab Config
+### Gitlab Config
 https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#configuring-the-external-url-for-gitlab
 
-# Gitlab Apache Config
+### Gitlab Apache Config
 http://jasonrichardsmith.org/blog/gitlab-apache-ubuntu
