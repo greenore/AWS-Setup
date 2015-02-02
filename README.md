@@ -1,5 +1,12 @@
 # AWS-Setup
 
+### Install necessary packages
+
+Packages for Curl 
+```
+sudo apt-get install libcurl4-gnutls-dev
+```
+
 ### Base-R Installation
 Add RStudio repo to sources list
 ```
@@ -20,6 +27,7 @@ sudo apt-get install r-base
 ```
 
 ### RRO Installation
+Check newest link for the RRO Packes under http://mran.revolutionanalytics.com/download/
 
 Check packages
 ```
@@ -35,13 +43,14 @@ tar -xzf RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz
 Run the install script:
 ```
 sudo ./install.sh
+rm RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz 
 ```
 
-Change the default repository for RRO, i.e., remove the automatic Snapshot function and use RStudio Mirror
+Change the default repository for RRO, i.e., remove the automatic Snapshot function and use the RStudio Mirror
 ```
 cd /usr/lib64/RRO-8.0.1/R-3.1.2/lib/R/etc/
 sudo cp Rprofile.site Rprofile.site.backup
-sudo wget -q https://rawgit.com/greenore/AWS-Setup/master/Rprofile.site
+sudo wget https://rawgit.com/greenore/AWS-Setup/master/Rprofile.site -O Rprofile.site
 ```
 
 ### RStudio
@@ -56,4 +65,3 @@ https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#configuring-t
 
 ### Gitlab Apache Config
 http://jasonrichardsmith.org/blog/gitlab-apache-ubuntu
-
