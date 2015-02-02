@@ -1,6 +1,6 @@
 # AWS-Setup
 
-### R Installation
+### Base-R Installation
 Add RStudio repo to sources list
 ```
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
@@ -19,7 +19,7 @@ sudo apt-get upgrade
 sudo apt-get install r-base
 ```
 
-Install RRO
+### RRO Installation
 
 Check packages
 ```
