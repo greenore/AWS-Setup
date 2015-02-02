@@ -34,7 +34,14 @@ tar -xzf RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz
 
 Run the install script:
 ```
-./install.sh
+sudo ./install.sh
+```
+
+Change the default repository for RRO, i.e., remove the automatic Snapshot function and use RStudio Mirror
+```
+cd /usr/lib64/RRO-8.0.1/R-3.1.2/lib/R/etc/
+sudo cp Rprofile.site Rprofile.site.backup
+sudo wget -q https://rawgit.com/greenore/AWS-Setup/master/Rprofile.site
 ```
 
 ### RStudio
