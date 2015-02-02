@@ -2,9 +2,10 @@
 
 ### Install necessary packages
 
-Packages for Curl 
 ```
-sudo apt-get install libcurl4-gnutls-dev
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install libcurl4-gnutls-dev make gcc gfortran g++
 ```
 
 ### Base-R Installation
@@ -29,13 +30,9 @@ sudo apt-get install r-base
 ### RRO Installation
 Check newest link for the RRO Packes under http://mran.revolutionanalytics.com/download/
 
-Check packages
+Download and unzip
 ```
-dpkg -l make gcc gfortran g++
-```
-
-Download and unzip the installer
-```
+cd ~
 wget http://mran.revolutionanalytics.com/install/RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz
 tar -xzf RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz
 ```
@@ -46,7 +43,7 @@ sudo ./install.sh
 rm RRO-8.0.1-Beta3-Ubuntu-14.04.x86_64.tar.gz 
 ```
 
-Change the default repository for RRO, i.e., remove the automatic Snapshot function and use the RStudio Mirror
+Change the default repository for RRO, i.e., remove the automatic "Snapshot" function and use the RStudio mirror
 ```
 cd /usr/lib64/RRO-8.0.1/R-3.1.2/lib/R/etc/
 sudo cp Rprofile.site Rprofile.site.backup
@@ -57,7 +54,10 @@ sudo wget https://rawgit.com/greenore/AWS-Setup/master/Rprofile.site -O Rprofile
 Check newest link for the RStudio Server under http://www.rstudio.com/products/rstudio/download/preview/
 
 ```
+cd ~
 wget https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-server-0.99.179-amd64.deb
+sudo dpkg -i rstudio-server-0.99.179-amd64.deb
+rm rstudio-server-0.99.179-amd64.deb
 ```
 
 ### Gitlab Config
