@@ -61,9 +61,13 @@ rm rstudio-server-0.99.179-amd64.deb
 ```
 
 ### Install Apache2 Server
+To enable an instance of Apache running on the same server to act as a front-end proxy to RStudio you need to use the mod_proxy. The steps for enabling this module vary across operating systems so you should consult your distribution's Apache documentation for details.
+
 ```
 sudo apt-get install apache2
-sudo a2enmod proxy_http
+sudo apt-get install apache2
+sudo apt-get install libapache2-mod-proxy-html
+sudo apt-get install libxml2-dev
 ```
 
 Configure the Apache2 server
@@ -78,6 +82,19 @@ sudo a2ensite rstudio.conf
 sudo apachectl configtest
 sudo service apache2 reload
 ```
+
+Then, to update the Apache configuration files to activate mod_proxy you execute the following commands:
+```
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+```
+
+Finally, after you've completed all of the above steps you'll then need to restart Apache so that the proxy settings take effect:
+```
+sudo /etc/init.d/apache2 restart
+```
+
+
 
 ### Install GIT
 ```
