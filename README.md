@@ -28,7 +28,7 @@ sudo apt-get install -y r-base
 ```
 
 ### RRO Installation
-Check newest link for the RRO Packes under http://mran.revolutionanalytics.com/download/
+Check newest link for the RRO Packages under http://mran.revolutionanalytics.com/download/
 
 Download and unzip
 ```
@@ -70,7 +70,8 @@ sudo apt-get install -y apache2 libapache2-mod-proxy-html libxml2-dev
 Configure the Apache2 server
 ```
 cd /etc/apache2/sites-available/
-sudo wget https://rawgit.com/greenore/AWS-Setup/master/rstudio.conf -O rstudio.conf
+sudo cp 000-default.conf 000-default.conf.backup
+sudo wget https://rawgit.com/greenore/AWS-Setup/master/rstudio.conf -O 000-default.conf
 ```
 
 Then, to update the Apache configuration files to activate mod_proxy you execute the following commands:
@@ -81,7 +82,6 @@ sudo a2enmod proxy_http
 
 Enable the host and test Apache configuration.
 ```
-sudo a2ensite rstudio.conf
 sudo apachectl configtest
 sudo service apache2 reload
 ```
@@ -146,4 +146,9 @@ http://jasonrichardsmith.org/blog/gitlab-apache-ubuntu
 ```
 sudo apt-get install -y make ruby ruby1.9.1-dev
 sudo gem install -y jekyll
+```
+
+### SQLite
+```
+sudo apt-get install -y sqlite
 ```
