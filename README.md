@@ -150,5 +150,5 @@ sudo gem install -y jekyll
 
 ### SQLite
 ```
-sudo apt-get install -y sqlite
+sudo apt-get install -y sqlite3
 ```
