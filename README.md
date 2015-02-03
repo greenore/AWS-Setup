@@ -89,11 +89,17 @@ sudo apachectl configtest
 sudo service apache2 reload
 ```
 
-
 ### Install GIT
 ```
 sudo apt-get update
 sudo apt-get install git
+```
+
+Configure GIT, i.e., define the author name to be used for all commits in the current repository. Typically, you’ll want to use the --global flag to set configuration options for the current user.
+
+```
+git config --global user.name <name>
+git config --global user.email <email>
 ```
 
 ### Gitlab Config
