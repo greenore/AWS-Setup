@@ -89,6 +89,43 @@ sudo apachectl configtest
 sudo service apache2 reload
 ```
 
+### Install Nginx Server
+
+On Debian or Ubuntu a version of Nginx that supports reverse-proxying can be installed using the following command:
+```
+sudo apt-get install nginx
+```
+
+To enable an instance of Nginx running on the same server to act as a front-end proxy to RStudio you would add commands like the following to your nginx.conf file:
+
+```
+http {
+  server {
+    listen 80;
+    
+    location / {
+      proxy_pass http://localhost:8787;
+      proxy_redirect http://localhost:8787/ $scheme://$host/;
+    }
+  }
+}
+```
+
+If you want to serve RStudio from a custom path (e.g. /rstudio) you would edit your nginx.conf file as shown below:
+
+```
+location /rstudio/ {
+  rewrite ^/rstudio/(.*)$ /$1 break;
+  proxy_pass http://localhost:8787;
+  proxy_redirect http://localhost:8787/ $scheme://$host/rstudio/;
+}
+```
+
+After adding these entries you'll then need to restart Nginx so that the proxy settings take effect:
+```
+sudo /etc/init.d/nginx restart
+```
+
 ### Install GIT
 ```
 sudo apt-get update
@@ -107,3 +144,9 @@ https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#configuring-t
 
 ### Gitlab Apache Config
 http://jasonrichardsmith.org/blog/gitlab-apache-ubuntu
+
+### Jekyll
+```
+sudo apt-get install -y make ruby ruby1.9.1-dev
+sudo gem install jekyll
+```
