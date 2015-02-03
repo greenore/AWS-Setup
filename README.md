@@ -63,6 +63,20 @@ rm rstudio-server-0.99.179-amd64.deb
 ### Install Apache2 Server
 ```
 sudo apt-get install apache2
+sudo a2enmod proxy_http
+```
+
+Configure the Apache2 server
+```
+cd /etc/apache2/sites-available/
+sudo wget https://rawgit.com/greenore/AWS-Setup/master/rstudio.conf -O rstudio.conf
+```
+
+Enable the host and test Apache configuration.
+```
+sudo a2ensite rstudio.conf
+sudo apachectl configtest
+sudo service apache2 reload
 ```
 
 ### Install GIT
