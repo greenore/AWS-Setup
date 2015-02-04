@@ -152,3 +152,8 @@ sudo gem install -y jekyll
 ```
 sudo apt-get install -y sqlite3
 ```
+
+# Tex Live
+```
+sudo apt-get install -y texlive texlive-lang-german texlive-latex-extra
+```
