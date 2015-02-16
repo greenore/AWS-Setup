@@ -164,3 +164,22 @@ sudo add-apt-repository ppa:opencpu/opencpu-1.4 -y
 sudo apt-get update
 sudo apt-get install opencpu
 ```
+
+### Increase Swappiness value
+The Linux kernel provides a tweakable setting that controls how often the swap file is used, called swappiness. The swappiness parameter controls the tendency of the kernel to move processes out of physical memory and onto the swap disk. Because disks are much slower than RAM, this can lead to slower response times for system and applications if processes are too aggressively moved out of memory.
+
+A swappiness setting of zero means that the disk will be avoided unless absolutely necessary (you run out of memory), while a swappiness setting of 100 means that programs will be swapped to disk almost instantly.
+
+Ubuntu comes with a default of 60, meaning that the swap file will be used fairly often if the memory usage is around half of the RAM. Check the system's swappiness value by running:
+```
+cat /proc/sys/vm/swappiness
+```
+
+The value can be turned down to 30 or so. The swap file will then only be used when the RAM usage is around 70 percent. To change the system swappiness value, run
+
+```
+sudo cp /etc/sysctl.conf /etc/sysctl.conf.backup
+sudo sh -c 'echo "\n# System swappiness setting\nvm.swappiness = 30" >> /etc/sysctl.conf'
+```
+
+Reboot for the change to take effect
