@@ -165,6 +165,14 @@ sudo apt-get update
 sudo apt-get install opencpu
 ```
 
+### Opencpu memory limits
+The OpenCPU cloud server sets a memory limit RLIMIT_AS on every request using the RAppArmor package. This is to prevent a single user from consuming all resources on a server. The default limit is 1GB per process. You can configure these limits by editing:
+
+```
+sudo nano /etc/opencpu/server.conf
+sudo service opencpu restart
+```
+
 ### Increase Swappiness value
 The Linux kernel provides a tweakable setting that controls how often the swap file is used, called swappiness. The swappiness parameter controls the tendency of the kernel to move processes out of physical memory and onto the swap disk. Because disks are much slower than RAM, this can lead to slower response times for system and applications if processes are too aggressively moved out of memory.
 
