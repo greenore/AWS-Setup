@@ -157,3 +157,10 @@ sudo apt-get install -y sqlite3
 ```
 sudo apt-get install -y texlive texlive-lang-german texlive-latex-extra
 ```
+
+### Opencpu
+```
+sudo add-apt-repository ppa:opencpu/opencpu-1.4 -y
+sudo apt-get update
+sudo apt-get install opencpu
+```
